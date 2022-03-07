@@ -26,6 +26,17 @@ class OrdersController extends Controller
         }
     }
 
+    public function actionOrdersAdd() {
+        if (view()->exists('orders.orders_add')) {
+
+            $data = [];
+
+            return view('orders.orders_add', $data);
+        } else {
+            abort('404');
+        }
+    }
+
     public function actionOrdersWarehouse() {
         if (view()->exists('orders.orders_warehouse')) {
 

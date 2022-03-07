@@ -16,6 +16,15 @@ class FinanceController extends Controller
     }
 
     public function actionFinanceIndex() {
-        //
+        if (view()->exists('finance.finance_index')) {
+
+            $data = [];
+
+            return view('finance.finance_index', $data);
+        } else {
+            abort('404');
+        }
     }
+
+
 }

@@ -4,6 +4,7 @@
 Route::group(['prefix' => 'customers', 'middleware' => []], function () {
     Route::get('/', 'CustomersController@actionCustomersIndex')->name('actionCustomersIndex');
     Route::get('/add', 'CustomersController@actionCustomersAdd')->name('actionCustomersAdd');
+    Route::get('/view/{customer_id}', 'CustomersController@actionCustomersView')->name('actionCustomersView');
 });
 
 // AJAX ROUTES

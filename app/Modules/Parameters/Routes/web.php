@@ -2,7 +2,7 @@
 
 // GENERAL ROUTES
 Route::group(['prefix' => 'parameters', 'middleware' => []], function () {
-    Route::get('/web    ', 'ParametersController@actionWebParametersIndex')->name('actionWebParametersIndex');
+    Route::get('/web', 'ParametersController@actionWebParametersIndex')->name('actionWebParametersIndex');
     Route::get('/translate', 'ParametersController@actionParametersTranslate')->name('actionParametersTranslate');
 });
 

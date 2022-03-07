@@ -87,8 +87,8 @@
                                                         <div class="drodown">
                                                             <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Activities</span></a></li>
+                                                                <ul class="link-list-opt no-bdr font-helvetica-regular">
+                                                                    <li><a href="{{ route('actionCustomersView', $customer_item->id) }}"><em class="icon ni ni-activity-round"></em><span>პროფილი</span></a></li>
                                                                     <li class="divider"></li>
                                                                     <li><a href="#"><em class="icon ni ni-shield-star"></em><span>Reset Pass</span></a></li>
                                                                 </ul>

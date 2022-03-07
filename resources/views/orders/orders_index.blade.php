@@ -30,10 +30,10 @@
                                                 <div class="dropdown-menu" style="min-width: 300px;">
                                                     <ul class="link-check font-helvetica-regular">
                                                         <li><span>Excel</span></li>
-                                                        <li><a href="javascript:;" onclick="ProductBalanceExport()">
+                                                        <li><a href="javascript:;" onclick="OrderExcelExportModal()">
                                                             <em class="icon ni ni-download"></em><span>არსებული შეკვეთების ჩამოტვირთვა</span></a>
                                                         </li>
-                                                        <li><a href="javascript:;" onclick="ProductBalanceUpload()">
+                                                        <li><a href="javascript:;" onclick="OrderExcelUploadModal()">
                                                             <em class="icon ni ni-upload"></em><span>ახალი შეკვეთების ატვირთვა</span></a>
                                                         </li>
                                                     </ul>
@@ -158,9 +158,70 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="OrderExcelUploadModal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-neue">ახალი შეკვეთების ატვირთვა</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross"></em>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-validate is-alter" novalidate="novalidate" id="order_upload_form">
+                    <div class="form-group">
+                        <label class="form-label font-helvetica-regular" for="excel_file">ექსელის ფაილი *</label>
+                        <div class="form-control-wrap">
+                            <input type="file" class="form-control check-input" name="excel_file" id="excel_file">
+                            <small class="excel_file-error text-error text-danger mt-1"></small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success font-neue" onclick="OrderExcelUploadSubmit()">ატვირთვა</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="OrderExcelExportModal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-neue">მიმდინარე შეკვეთების ჩამოტვირთვა</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross"></em>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-validate is-alter" novalidate="novalidate" id="order_export_form">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label class="form-label" for="date_from">თარიღი (დან)</label>
+                                <div class="form-control-wrap">
+                                    <input type="date" class="form-control" name="date_from" id="date_from">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label class="form-label" for="default-01">თარიღი (მდე)</label>
+                                <div class="form-control-wrap">
+                                    <input type="date" class="form-control" name="date_to" id="date_from">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <button type="button" class="btn btn-success font-neue mt-2" onclick="ProductBalanceSubmit()">ექსპორტი</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('js')
 <script type="text/javascript" src="{{ url('assets/js/jquery-ui.min.js') }}"></script>
-<script src="{{ url('assets/scripts/products_scripts.js') }}"></script>
+<script src="{{ url('assets/scripts/orders_scripts.js') }}"></script>
 @endsection

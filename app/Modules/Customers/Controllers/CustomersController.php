@@ -57,4 +57,24 @@ class CustomersController extends Controller
             abort('404');
         }
     }
+
+    public function actionCustomersView(Request $Request) {
+        if (view()->exists('customers.customers_view')) {
+
+            $Customer = new Customer();
+            $CustomerData = $Customer::find($Request->customer_id);
+
+            $Company = new Company();
+            $CompanyData = $Company::where('customer_id', $Request->customer_id)->where('deleted_at_int', '!=', 0)->get();
+
+            $data = [
+                'customer_data' => $CustomerData,
+                'company_data' => $CompanyData,
+            ];
+
+            return view('customers.customers_view', $data);
+        } else {
+            abort('404');
+        }
+    }
 }

@@ -116,11 +116,11 @@
                                     <span class="nk-menu-text">ვებ გვერდის თარგმნები</span>
                                 </a>
                             </li>
-                            <li class="nk-menu-item">
+                            <!-- <li class="nk-menu-item">
                                 <a href="{{ route('actionOrdersIndex') }}" class="nk-menu-link">
                                     <span class="nk-menu-text">სისტემის პარამეტრები</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                 </ul>
