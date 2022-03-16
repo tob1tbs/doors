@@ -28,6 +28,11 @@
                             <span class="nk-menu-text">მთავარი გვერდი</span>
                         </a>
                     </li>
+                    <li class="nk-menu-item">
+                        <a href="{{ route('actionMainIndex') }}" class="nk-menu-link">
+                            <span class="nk-menu-text">ჩემი შეკვეთები</span>
+                        </a>
+                    </li>
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-text">თანამშრომლები</span>
@@ -44,13 +49,13 @@
                                 </a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="{{ route('actionUsersIndex') }}" class="nk-menu-link">
+                                <a href="{{ route('actionUsersPositions') }}" class="nk-menu-link">
                                     <span class="nk-menu-text">სამუშაო პოზიციები</span>
                                 </a>
                             </li>
                             <li class="nk-menu-item">
                                 <a href="{{ route('actionUsersCalendar') }}" class="nk-menu-link">
-                                    <span class="nk-menu-text">სამუშაო კალენდარი</span>
+                                    <span class="nk-menu-text">კურიერების სამუშაო კალენდარი</span>
                                 </a>
                             </li>
                         </ul>

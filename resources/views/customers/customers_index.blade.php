@@ -11,14 +11,14 @@
             <div class="nk-block-head">
                 <div class="nk-block-between">
                     <div class="nk-block-head-content">
-                        <h4 class="nk-block-title font-neue">მომხმარებელთა ჩამონათვალი</h4>
+                        <h4 class="nk-block-title font-neue">კლიენტთა ჩამონათვალი</h4>
                     </div>    
                     <div class="nk-block-head-content">
                         <ul class="nk-block-tools g-3">
                             <li>
                                 <a href="{{ route('actionCustomersAdd') }}" class="btn btn-white btn-outline-light">
                                     <em class="icon ni ni-plus"></em>
-                                    <span class="font-helvetica-regular">ახალი მომხმარებელი</span>
+                                    <span class="font-helvetica-regular">ახალი კლიენტი</span>
                                 </a>
                             </li>
                         </ul>
@@ -29,11 +29,11 @@
                 <div class="card card-preview">
                     <div class="card-inner">
                         <ul class="nav nav-tabs">
-                            <li class="nav-item"><a class="nav-link active font-neue" data-toggle="tab" href="#customers_list">ფიზიკური პირები</a></li>
-                            <li class="nav-item"><a class="nav-link font-neue" data-toggle="tab" href="#company_list">იურიდიული პირები</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link  font-neue" data-toggle="tab" href="#customers_list">ფიზიკური პირები</a></li> -->
+                            <li class="nav-item"><a class="nav-link active font-neue" data-toggle="tab" href="#company_list">იურიდიული პირები</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="customers_list">
+                            <!-- <div class="tab-pane" id="customers_list">
                                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                                     <thead>
                                         <tr class="nk-tb-item nk-tb-head font-helvetica-regular">
@@ -101,8 +101,8 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="tab-pane" id="company_list">
+                            </div> -->
+                            <div class="tab-pane active" id="company_list">
                                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                                     <thead>
                                         <tr class="nk-tb-item nk-tb-head font-helvetica-regular">
@@ -148,8 +148,8 @@
                                                         <div class="drodown">
                                                             <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Activities</span></a></li>
+                                                                <ul class="link-list-opt no-bdr font-helvetica-regular">
+                                                                    <li><a href="{{ route('actionCompanyView', $company_item->id) }}"><em class="icon ni ni-activity-round"></em><span>პროფილი</span></a></li>
                                                                     <li class="divider"></li>
                                                                     <li><a href="#"><em class="icon ni ni-shield-star"></em><span>Reset Pass</span></a></li>
                                                                 </ul>

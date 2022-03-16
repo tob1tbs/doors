@@ -9,6 +9,7 @@ Route::group(['prefix' => 'users', 'middleware' => []], function () {
     Route::get('/role', 'UsersController@actionUsersRole')->name('actionUsersRole');
     Route::get('/calendar', 'UsersController@actionUsersCalendar')->name('actionUsersCalendar');
     Route::get('/salary', 'UsersController@actionUsersSalary')->name('actionUsersSalary');
+    Route::get('/positions', 'UsersController@actionUsersPositions')->name('actionUsersPositions');
 });
 
 // AJAX ROUTES

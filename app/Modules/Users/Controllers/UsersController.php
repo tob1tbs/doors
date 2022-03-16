@@ -263,4 +263,20 @@ class UsersController extends Controller
             abort('404');
         }
     }
+
+    public function actionUsersPositions(Request $Request) {
+        if (view()->exists('users.users_positions')) {
+
+            $UserWorkPosition = new UserWorkPosition();
+            $UserWorkPositionList = $UserWorkPosition::where('deleted_at_int', '!=', 0)->get();
+
+            $data = [
+                'user_work_position_list' => $UserWorkPositionList,
+            ];
+
+            return view('users.users_positions', $data);
+        } else {
+            abort('404');
+        }
+    }
 }

@@ -21,31 +21,18 @@ class CustomersAjaxController extends Controller
             $messages = array(
                 'required' => 'გთხოვთ შეავსოთ ყველა აუცილებელი ველი',
             );
-
-            $customer_required = [
+            $validator = Validator::make($Request->all(), [
                 'customer_name' => 'required|max:255',
                 'customer_lastname' => 'required|max:255',
                 'customer_personal_number' => 'required|unique:new_customers,personal_number,'.$Request->customer_id.'|max:11',
                 'customer_bdate' => 'required|max:255',
                 'customer_phone' => 'required|max:255',
                 'customer_email' => 'required|max:255',
-            ];
-
-            $company_required = [
                 'company_name' => 'required|max:255',
-                'company_code' => 'required|max:255',
+                'company_name' => 'required|max:255',
+                'company_price' => 'required|max:255',
                 'company_address' => 'required|max:255',
-            ];
-
-            $rule = [];
-
-            $rule = array_merge($rule, $customer_required);
-
-            if($Request->customer_type == 2) {
-                $rule = array_merge($rule, $company_required);
-            }
-
-            $validator = Validator::make($Request->all(), $rule, $messages);
+            ], $messages);
 
             if ($validator->fails()) {
                 return Response::json(['status' => true, 'errors' => true, 'message' => $validator->getMessageBag()->toArray()], 200);
@@ -62,24 +49,23 @@ class CustomersAjaxController extends Controller
                         'bdate' => $Request->customer_bdate,
                         'phone' => $Request->customer_phone,
                         'email' => $Request->customer_email,
-                        'type' => $Request->customer_type,
+                        'type' => 2,
                         'password' => Hash::make('Password'),
                     ],
                 );
 
-                if($Request->customer_type == 2) {
-                    $Company = new Company();
-                    $Company::updateOrCreate(
-                        ['id' => $Request->company_id],
-                        [
-                            'id' => $Request->company_id,        
-                            'name' => $Request->company_name,        
-                            'code' => $Request->company_code,        
-                            'address' => $Request->company_address,        
-                            'customer_id' => $CustomerData->id,        
-                        ],
-                    );
-                }
+                $Company = new Company();
+                $Company::updateOrCreate(
+                    ['id' => $Request->company_id],
+                    [
+                        'id' => $Request->company_id,        
+                        'name' => $Request->company_name,        
+                        'code' => $Request->company_code,        
+                        'address' => $Request->company_address,        
+                        'customer_id' => $CustomerData->id,        
+                        'price' => $Request->company_price,
+                    ],
+                );
                     
                 return Response::json(['status' => true, 'message' => 'კლიენტი წარმატებით დაემატა', 'redirect' => route('actionCustomersIndex')]);
             }

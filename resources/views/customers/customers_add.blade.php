@@ -20,7 +20,7 @@
                     <div class="card-inner">
                         <form id="customer_form" class="row">
                             <div class="col-8">
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label class="form-label" for="customer_type">მომხმარებლის ტიპი</label>
@@ -30,13 +30,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row company-data" style="display: none;">
+                                </div> -->
+                                <div class="row company-data">
                                     <div class="col-12 mt-3">
                                         <h4 class="font-neue">ინფორმაცია კომპანიაზე</h4>
                                         <small class="font-helvetica-regular" style="font-size: 14px;">პირადი ინფორმაცია იქნება გამოყენებული როგორც კომპანიის წარმომადგენილის მონაცემები.</small>
                                     </div>
-                                    <div class="col-4 mt-2">
+                                    <div class="col-6 mt-2">
                                         <div class="form-group">
                                             <label class="form-label" for="company_name">კომპანიის დასახელება</label>
                                             <div class="form-control-wrap">
@@ -45,7 +45,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4 mt-2">
+                                    <div class="col-6 mt-2">
                                         <div class="form-group">
                                             <label class="form-label" for="company_code">კომპანიის საიდენტიფიკაციო კოდი</label>
                                             <div class="form-control-wrap">
@@ -54,12 +54,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4 mt-2">
+                                    <div class="col-6 mt-2">
                                         <div class="form-group">
                                             <label class="form-label" for="company_address">კომპანიის მისამართი</label>
                                             <div class="form-control-wrap">
                                                 <input type="text" class="form-control check-input" name="company_address" id="company_address">
                                                 <small class="font-helvetica-regular error-company_address text-error text-danger mt-1"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <div class="form-group">
+                                            <label class="form-label" for="company_price">ტარიფი</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control check-input" name="company_price" id="company_price">
+                                                <small class="font-helvetica-regular error-company_price text-error text-danger mt-1"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -127,8 +136,6 @@
                             <div class="col-12">
                                 <button class="btn btn-success font-neue mt-3" type="button" onclick="CustomerSubmit()">დადასტურება</button>
                             </div>
-                            <input type="hidden" name="customer_id" id="customer_id">
-                            <input type="hidden" name="company_id" id="company_id">
                         </form>
                     </div>
                 </div>

@@ -26,7 +26,7 @@
                                                 </div>
                                             </div>
                                             <div class="dropdown">
-                                                <a href="#" class="dropdown-toggle btn btn-light font-helvetica-regular ml-2" data-toggle="dropdown">შეკვეთების ექსპორტი - იმპორტი</a>
+                                                <a href="#" class="dropdown-toggle btn btn-light font-helvetica-regular ml-2" data-toggle="dropdown">შეკვეთების ექსპორტი</a>
                                                 <div class="dropdown-menu" style="min-width: 300px;">
                                                     <ul class="link-check font-helvetica-regular">
                                                         <li><span>Excel</span></li>
@@ -85,31 +85,32 @@
                                                                             <form method="get" class="row gx-6 gy-3">
                                                                                 <div class="col-6">
                                                                                     <div class="form-group">
-                                                                                        <label class="font-helvetica-regular overline-title overline-title-alt">შეკვეთის ნომერი<br></label>
-                                                                                        <input type="text" class="form-control" name="order_number" value="{{ request()->order_number }}">
+                                                                                        <label class="font-helvetica-regular overline-title overline-title-alt">კატეგორიის სახელი <br></label>
+                                                                                        <input type="text" class="form-control" name="search_query">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-6">
                                                                                     <div class="form-group">
                                                                                         <label class="font-helvetica-regular overline-title overline-title-alt">სტატუსი</label>
-                                                                                        <select class="form-select form-select-sm" name="order_status">
-                                                                                            <option value="0"></option>
-                                                                                            @foreach($order_status_list as $status_item)
-                                                                                            <option value="{{ $status_item->id }}" @if($status_item->id == request()->order_status) selected @endif>{{ $status_item->name }}</option>
-                                                                                            @endforeach
+                                                                                        <select class="form-select form-select-sm" name="category_active">
+                                                                                            
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-6">
                                                                                     <div class="form-group">
-                                                                                        <label class="font-helvetica-regular overline-title overline-title-alt">თარიღი (დან)</label>
-                                                                                        <input type="date" class="form-control" name="order_date_from" value="{{ request()->order_date_from }}">
+                                                                                        <label class="font-helvetica-regular overline-title overline-title-alt">სორტირება</label>
+                                                                                        <select class="form-select form-select-sm" name="sort_by">
+                                                                                           
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-6">
                                                                                     <div class="form-group">
-                                                                                        <label class="font-helvetica-regular overline-title overline-title-alt">თარიღი (მდე)</label>
-                                                                                        <input type="date" class="form-control" name="order_date_to" value="{{ request()->order_date_to }}">
+                                                                                        <label class="font-helvetica-regular overline-title overline-title-alt">რაოდენობა</label>
+                                                                                        <select class="form-select form-select-sm" name="count">
+                                                                                           
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-12">
@@ -145,7 +146,7 @@
                                                 <div class="tab-pane active" id="new_orders">
                                                     <div class="nk-tb-list nk-tb-ulist">
                                                         <div class="nk-tb-item nk-tb-head font-helvetica-regular">
-                                                            <div class="nk-tb-col"><span># შეკვეთის კოდი</span></div>
+                                                            <div class="nk-tb-col"><span># შეკვეთის კოდი / ტრექინგ კოდი</span></div>
                                                             <div class="nk-tb-col tb-col-mb"><span>შეკვეთის ღირებულება</span></div>
                                                             <div class="nk-tb-col tb-col-mb"><span>საწყობი</span></div>
                                                             <div class="nk-tb-col tb-col-mb"><span>გამომგზავნი</span></div>
@@ -190,7 +191,7 @@
                                                                     <a class="text-soft dropdown-toggle btn btn-sm btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-chevron-right"></em></a>
                                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs font-helvetica-regular" style="min-width: 200px;">
                                                                         <ul class="link-list-plain">
-                                                                            <li><a href="{{ route('actionOrdersView', $order_item->id) }}">შეკვეთის ნახვა</a></li>
+                                                                            <li><a href="#">შეკვეთის ნახვა</a></li>
                                                                             <li><a href="#" onclick="OrderStatusChange({{ $order_item->id }})">სტატუსის ცვილელება</a></li>
                                                                             <li><a href="#">რედაქტურება</a></li>
                                                                             <li><a href="#" class="text-danger">წაშლა</a></li>
@@ -250,7 +251,7 @@
                                                                     <a class="text-soft dropdown-toggle btn btn-sm btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-chevron-right"></em></a>
                                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs font-helvetica-regular" style="min-width: 200px;">
                                                                         <ul class="link-list-plain">
-                                                                            <li><a href="{{ route('actionOrdersView', $order_item->id) }}">შეკვეთის ნახვა</a></li>
+                                                                            <li><a href="#">შეკვეთის ნახვა</a></li>
                                                                             <li><a href="#" onclick="OrderStatusChange({{ $order_item->id }})">სტატუსის ცვილელება</a></li>
                                                                             <li><a href="#">რედაქტურება</a></li>
                                                                             <li><a href="#" class="text-danger">წაშლა</a></li>
@@ -310,7 +311,7 @@
                                                                     <a class="text-soft dropdown-toggle btn btn-sm btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-chevron-right"></em></a>
                                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs font-helvetica-regular" style="min-width: 200px;">
                                                                         <ul class="link-list-plain">
-                                                                            <li><a href="{{ route('actionOrdersView', $order_item->id) }}">შეკვეთის ნახვა</a></li>
+                                                                            <li><a href="#">შეკვეთის ნახვა</a></li>
                                                                             <li><a href="#" onclick="OrderStatusChange({{ $order_item->id }})">სტატუსის ცვილელება</a></li>
                                                                             <li><a href="#">რედაქტურება</a></li>
                                                                             <li><a href="#" class="text-danger">წაშლა</a></li>
@@ -338,14 +339,14 @@
                                                         <div class="nk-tb-item font-helvetica-regular">
                                                             <div class="nk-tb-col">
                                                                 <div class="align-center">
-                                                                    <span class="tb-sub ml-2">{{ $order_item->id }} / {{ $order_item->tracking_code }}</span>
+                                                                    <span class="tb-sub ml-2">{{ $order_item->id }} / MTRPOST{{ $order_item->id }}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="nk-tb-col">
-                                                                <span class="tb-sub tb-amount">{{ $order_item->orderWarehouse->name }} / {{ $order_item->orderChildWarehouse->name }} </span>
+                                                                <span class="tb-sub tb-amount">{{ $order_item->order_amount / 100 }} ₾</span>
                                                             </div>
                                                             <div class="nk-tb-col">
-                                                                <span class="tb-sub tb-amount">{{ $order_item->order_amount / 100 }} ₾</span>
+                                                                <span class="tb-sub tb-amount">{{ $order_item->orderWarehouse->name }} / {{ $order_item->orderChildWarehouse->name }} </span>
                                                             </div>
                                                             <div class="nk-tb-col tb-col-sm">
                                                                 <div class="user-card">
@@ -441,7 +442,7 @@
                         </label>
                         <div class="form-control-wrap">
                             <input type="file" class="form-control check-input" name="excel_file" id="excel_file">
-                            <a href="#" class="text-success font-helvetica-regular float-right mt-1" style="font-size: 12px">შაბლონის ჩამოტვირთვა</a>
+                            <a href="#" class="text-success font-helvetica-regular float-right mt-1">შაბლონის ჩამოტვირთვა</a>
                         </div>
                     </div>
                     <button type="button" class="btn btn-success font-neue" onclick="OrderExcelUploadSubmit()">ატვირთვა</button>

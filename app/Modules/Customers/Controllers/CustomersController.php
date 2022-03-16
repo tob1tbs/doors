@@ -77,4 +77,20 @@ class CustomersController extends Controller
             abort('404');
         }
     }
+
+    public function actionCompanyView(Request $Request) {
+        if (view()->exists('customers.company_view')) {
+
+            $Company = new Company();
+            $CompanyData = $Company::find($Request->company_id);
+
+            $data = [
+                'company_data' => $CompanyData,
+            ];
+
+            return view('customers.company_view', $data);
+        } else {
+            abort('404');
+        }
+    }
 }

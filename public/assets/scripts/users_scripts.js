@@ -498,3 +498,7 @@ function UserNotWorking() {
         position: 'top-right'
     });
 }
+
+function AddNewPositionModal() {
+    $("#AddNewPositionModal").modal('show');   
+}
