@@ -22,7 +22,20 @@
 								        <p>content</p>
 								    </div>
 								    <div class="tab-pane" id="order_list">
-								        
+								        <table class="table table-ulogs">
+                                            <thead class="thead-light">
+                                                <tr class="font-neue">
+                                                    <th class="tb-col-time"><span class="overline-title">შეკვეთის ნომერი</span></th>
+                                                    <th class="tb-col-time"><span class="overline-title">შეკვეთის გაფორმების თარიღი</span></th>
+                                                    <th class="tb-col-time"><span class="overline-title">ტარიფი</span></th>
+                                                    <th class="tb-col-time"><span class="overline-title">ღირებულება</span></th>
+                                                    <th class="tb-col-action"><span class="overline-title">&nbsp;</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            <tbody>
+                                        </table>
 								    </div>
 								    <div class="tab-pane" id="vacation_list">
 								        <table class="table table-tranx">

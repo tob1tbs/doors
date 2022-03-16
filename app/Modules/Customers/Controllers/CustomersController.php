@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Modules\Customers\Models\Customer;
 use App\Modules\Customers\Models\Company;
 
+use App\Modules\Orders\Models\Order;
+
 class CustomersController extends Controller
 {
 
@@ -84,8 +86,12 @@ class CustomersController extends Controller
             $Company = new Company();
             $CompanyData = $Company::find($Request->company_id);
 
+            $Order = new Order();
+            $CompanyOrder = $Order::where('company_id', $Request->company_id)->get();
+
             $data = [
                 'company_data' => $CompanyData,
+                'company_order' => $CompanyOrder,
             ];
 
             return view('customers.company_view', $data);
